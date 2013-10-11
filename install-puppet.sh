@@ -26,3 +26,7 @@ fi
 
 apt-get update
 apt-get install puppet -t jessie
+
+# disable puppet runs
+# we will always "puppet apply"
+puppet agent --disable

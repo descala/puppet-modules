@@ -7,4 +7,9 @@ class libreoffice inherits libreoffice::params {
     notify  => Exec['apt-update']
   }
 
+  package { 'libreoffice-gnome':
+    ensure  => present,
+    require => File['/etc/apt/preferences.d/11_libreoffice.pref']
+  }
+
 }

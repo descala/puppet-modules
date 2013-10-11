@@ -1,3 +1,3 @@
-Package: libreoffice*
+Package: libreoffice* python-uno uno-libs3 ure
 Pin: release a=wheezy-backports
 Pin-Priority: 990

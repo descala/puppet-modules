@@ -1,0 +1,3 @@
+[submodule "apt-cacher-ng"]
+	path = apt-cacher-ng
+	url = https://github.com/lelutin/puppet-apt-cacher-ng.git

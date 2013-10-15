@@ -4,15 +4,14 @@
 
 name="LibreOffice_4.1.2_Linux_x86-64_deb.tar.gz"
 name_lang="LibreOffice_4.1.2_Linux_x86-64_deb_langpack_ca.tar.gz"
-package="http://donate.libreoffice.org/home/dl/deb-x86_64/4.1.2/ca/$name"
-package_lang="http://download.documentfoundation.org/libreoffice/stable/4.1.2/deb/x86_64/$name_lang"
+loc="http://download.documentfoundation.org/libreoffice/stable/4.1.2/deb/x86_64/"
 
 cd /root/
 if [ ! -s "$name" ]; then
-  wget $package -O $name
+  wget "${loc}${name}" -O $name
 fi
 if [ ! -s "$name_lang" ]; then
-  wget $package_lang -O $name_lang
+  wget "${loc}${name_lang}" -O $name_lang
 fi
 
 tar xaf $name

@@ -20,18 +20,21 @@ class libreoffice(
       }
     }
 
-    default: {
+    'backports': {
       package { 'libreoffice-gnome':
         ensure  => present,
         require => File['/etc/apt/preferences.d/11_libreoffice.pref']
       }
-      if $source == 'backports' {
-        # libreoffice from wheezy-backports
-        file { '/etc/apt/preferences.d/11_libreoffice.pref':
-          ensure  => present,
-          content => template('libreoffice/11_libreoffice.pref'),
-          notify  => Exec['apt-update']
-        }
+      file { '/etc/apt/preferences.d/11_libreoffice.pref':
+        ensure  => present,
+        content => template('libreoffice/11_libreoffice.pref'),
+        notify  => Exec['apt-update']
+      }
+    }
+
+    default: {
+      package { 'libreoffice-gnome':
+        ensure  => present,
       }
     }
   }

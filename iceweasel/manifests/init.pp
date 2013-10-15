@@ -21,11 +21,12 @@ class iceweasel inherits iceweasel::params {
     content => template("iceweasel/sources.list.erb"),
     notify  => Exec["apt-update"]
   }
-  file { "/etc/iceweasel/pref/iceweasel.js":
-    ensure  => present,
-    content => template("iceweasel/pref.js.erb"),
-    require => Package["iceweasel"]
-  }
+# TODO this is too specific
+#  file { "/etc/iceweasel/pref/iceweasel.js":
+#    ensure  => present,
+#    content => template("iceweasel/pref.js.erb"),
+#    require => Package["iceweasel"]
+#  }
   exec { "iceweasel-add-archive-key":
     refreshonly => true,
     command     => "/usr/bin/gpg --check-sigs --fingerprint --keyring /etc/apt/trusted.gpg.d/pkg-mozilla-archive-keyring.gpg --keyring /usr/share/keyrings/debian-keyring.gpg pkg-mozilla-maintainers",

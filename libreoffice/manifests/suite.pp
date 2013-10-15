@@ -12,7 +12,7 @@ class libreoffice::suite inherits libreoffice {
       }
     }
     'edge': {
-      package { 'libreoffice':
+      package { ['libreoffice','libreoffice-common']:
         ensure  => absent
       }
     }

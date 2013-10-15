@@ -15,7 +15,8 @@ class libreoffice(
       exec { 'libreoffice-install':
         creates => '/opt/libreoffice4.1',
         command => '/opt/install_libreoffice.sh',
-        require => File['/opt/install_libreoffice.sh']
+        require => File['/opt/install_libreoffice.sh'],
+        timeout => 900 # 15 min
       }
     }
 

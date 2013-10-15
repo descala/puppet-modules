@@ -9,29 +9,29 @@ class apt inherits apt::params {
     ensure  => present,
     content => template('apt/sources.list.erb')
   }
-  file { '/etc/apt/sources.list.d/jessie.sources.list':
+  file { '/etc/apt/sources.list.d/jessie.list':
     ensure  => present,
-    content => template('apt/jessie.sources.list.erb')
+    content => template('apt/jessie.list.erb')
   }
-  file { '/etc/apt/sources.list.d/backports.sources.list':
+  file { '/etc/apt/sources.list.d/backports.list':
     ensure  => present,
-    content => template('apt/backports.sources.list.erb')
+    content => template('apt/backports.list.erb')
   }
-  file { '/etc/apt/sources.list.d/quantum.sources.list':
+  file { '/etc/apt/sources.list.d/quantum.list':
     ensure  => present,
-    content => template('apt/quantum.sources.list.erb')
+    content => template('apt/quantum.list.erb')
   }
-  file { '/etc/apt/sources.list.d/postgis.sources.list':
+  file { '/etc/apt/sources.list.d/postgis.list':
     ensure  => present,
-    content => template('apt/postgis.sources.list.erb')
+    content => template('apt/postgis.list.erb')
   }
-  file { '/etc/apt/sources.list.d/owncloud.sources.list':
+  file { '/etc/apt/sources.list.d/owncloud.list':
     ensure  => present,
-    content => template('apt/owncloud.sources.list.erb')
+    content => template('apt/owncloud.list.erb')
   }
-  file { '/etc/apt/sources.list.d/virtualbox.sources.list':
+  file { '/etc/apt/sources.list.d/virtualbox.list':
     ensure  => present,
-    content => template('apt/virtualbox.sources.list.erb')
+    content => template('apt/virtualbox.list.erb')
   }
   exec { 'apt-update':
     refreshonly => true,

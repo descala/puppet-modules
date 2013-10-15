@@ -8,8 +8,12 @@ package="http://donate.libreoffice.org/home/dl/deb-x86_64/4.1.2/ca/$name"
 package_lang="http://download.documentfoundation.org/libreoffice/stable/4.1.2/deb/x86_64/$name_lang"
 
 cd /root/
-wget $package -O $name
-wget $package_lang -O $name_lang
+if [ ! -s "$name" ]; then
+  wget $package -O $name
+fi
+if [ ! -s "$name_lang" ]; then
+  wget $package_lang -O $name_lang
+fi
 
 tar xaf $name
 tar xaf $name_lang

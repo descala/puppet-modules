@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Install LibreOffice from http://www.libreoffice.org/
+
+name="LibreOffice_4.1.2_Linux_x86-64_deb.tar.gz"
+name_lang="LibreOffice_4.1.2_Linux_x86-64_deb_langpack_ca.tar.gz"
+package="http://donate.libreoffice.org/home/dl/deb-x86_64/4.1.2/ca/$name"
+package_lang="http://download.documentfoundation.org/libreoffice/stable/4.1.2/deb/x86_64/$name_lang"
+
+cd /root/
+wget $package -O $name
+wget $package_lang -O $name_lang
+
+tar xaf $name
+tar xaf $name_lang
+
+dpkg -i LibreOffice_*deb/DEBS/*.deb
+dpkg -i LibreOffice_*_ca/DEBS/*.deb
+
+rm -rf LibreOffice_*/

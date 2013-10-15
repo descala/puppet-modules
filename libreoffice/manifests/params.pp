@@ -1,8 +1,12 @@
 class libreoffice::params {
+
+  # stable / backports / edge
+  $source = 'stable'
+
   case $::osfamily {
-    "Debian": {
+    'Debian': {
       case $::lsbdistcodename {
-        "wheezy": {
+        'wheezy': {
         }
         default: { fail("unsupported release ${::lsbdistcodename}") }
       }

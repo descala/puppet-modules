@@ -1,5 +1,5 @@
 class libreoffice::writer inherits libreoffice {
-  case $::source {
+  case $libreoffice::source {
     'stable': {
       package { 'libreoffice-writer':
         ensure  => installed

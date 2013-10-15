@@ -1,5 +1,5 @@
 class libreoffice::suite inherits libreoffice {
-  case $::source {
+  case $libreoffice::source {
     'stable': {
       package { 'libreoffice':
         ensure  => latest
@@ -16,6 +16,8 @@ class libreoffice::suite inherits libreoffice {
         ensure  => absent
       }
     }
-    default: {}
+    default: {
+      fail("unknown value for source variable on libreoffice::suite ($libreoffice::source)")
+    }
   }
 }

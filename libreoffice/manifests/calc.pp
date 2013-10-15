@@ -1,5 +1,5 @@
 class libreoffice::calc inherits libreoffice {
-  case $::source {
+  case $libreoffice::source {
     'stable': {
       package { 'libreoffice-calc':
         ensure  => installed

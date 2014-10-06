@@ -13,7 +13,7 @@ class libreoffice(
         content => template('libreoffice/install_libreoffice.sh.erb')
       }
       exec { 'libreoffice-install':
-        creates => '/opt/libreoffice4.1',
+        creates => '/opt/libreoffice4.2',
         command => '/opt/install_libreoffice.sh',
         require => File['/opt/install_libreoffice.sh'],
         timeout => 900 # 15 min

@@ -9,10 +9,10 @@ class apt inherits apt::params {
     ensure  => present,
     content => template('apt/sources.list.erb')
   }
-  file { '/etc/apt/sources.list.d/jessie.list':
-    ensure  => present,
-    content => template('apt/jessie.list.erb')
-  }
+  #file { '/etc/apt/sources.list.d/jessie.list':
+  #  ensure  => present,
+  #  content => template('apt/jessie.list.erb')
+  #}
   file { '/etc/apt/sources.list.d/backports.list':
     ensure  => present,
     content => template('apt/backports.list.erb')

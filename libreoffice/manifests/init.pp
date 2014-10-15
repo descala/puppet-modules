@@ -4,9 +4,10 @@ class libreoffice(
 
   case $source {
     'edge': {
-      package { 'libreoffice-gnome':
-        ensure => absent
-      }
+      #TODO: this uninstalls gnome metapackage...
+      #package { 'libreoffice-gnome':
+      #  ensure => absent
+      #}
       file { '/opt/install_libreoffice.sh':
         ensure  => present,
         mode    => '0700',

@@ -32,12 +32,12 @@ class libreoffice(
         notify  => Exec['apt-update']
       }
       # workaround bug: https://www.libreoffice.org/bugzilla/show_bug.cgi?id=67527
-      exec { 'sed -i "s/^X-GIO-NoFuse=true/#X-GIO-NoFuse=true/" /usr/lib/libreoffice/share/xdg/*.desktop':
-        onlyif  => 'grep "^X-GIO-NoFuse=true" /usr/lib/libreoffice/share/xdg/*.desktop',
+      exec { '/bin/sed -i "s/^X-GIO-NoFuse=true/#X-GIO-NoFuse=true/" /usr/lib/libreoffice/share/xdg/*.desktop':
+        onlyif  => '/bin/grep -q "^X-GIO-NoFuse=true" /usr/lib/libreoffice/share/xdg/*.desktop',
         require => Package['libreoffice-gnome'];
       }
-      exec { 'sed -i "s/^X-KDE-Protocols=file,http,smb,ftp,webdav/#X-KDE-Protocols=file,http,smb,ftp,webdav/" /usr/lib/libreoffice/share/xdg/*.desktop':
-        onlyif  => 'grep "^X-KDE-Protocols=file,http,smb,ftp,webdav" /usr/lib/libreoffice/share/xdg/*.desktop',
+      exec { '/bin/sed -i "s/^X-KDE-Protocols=file,http,smb,ftp,webdav/#X-KDE-Protocols=file,http,smb,ftp,webdav/" /usr/lib/libreoffice/share/xdg/*.desktop':
+        onlyif  => '/bin/grep -q "^X-KDE-Protocols=file,http,smb,ftp,webdav" /usr/lib/libreoffice/share/xdg/*.desktop',
         require => Package['libreoffice-gnome'];
       }
     }
